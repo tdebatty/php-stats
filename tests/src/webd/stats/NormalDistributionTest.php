@@ -63,13 +63,35 @@ class NormalDistributionTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @covers webd\stats\NormalDistribution::cumulativeProbability
-     * @todo   Implement testCumulativeProbability().
      */
     public function testCumulativeProbability() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $nd = new NormalDistribution(0, 1);
+        $this->assertEquals(
+                0.0228, 
+                $nd->cumulativeProbability(-2),
+                "",
+                0.001);
+        $this->assertEquals(
+                0.1587, 
+                $nd->cumulativeProbability(-1),
+                "",
+                0.001);
+        $this->assertEquals(
+                0.5, 
+                $nd->cumulativeProbability(0),
+                "",
+                0.001);
+        $this->assertEquals(
+                0.8413, 
+                $nd->cumulativeProbability(1),
+                "",
+                0.001);
+        $this->assertEquals(
+                0.9772, 
+                $nd->cumulativeProbability(2),
+                "",
+                0.001);
+        
     }
 
     /**
@@ -88,10 +110,9 @@ class NormalDistributionTest extends \PHPUnit_Framework_TestCase {
      * @todo   Implement testSamples().
      */
     public function testSamples() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $d = new NormalDistribution(2, 5);
+        $s = $d->samples(1000);
+        //echo implode("\t", $s);
     }
 
 }
